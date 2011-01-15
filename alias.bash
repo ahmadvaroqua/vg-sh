@@ -47,8 +47,8 @@ alias rd='rm -rf'
 alias kcu='knife cookbook upload'
 #alias space='du -Psckx * | sort -nr'
 alias space='du -hc *'
-alias ep='vim ~/.profile'
-alias sp='source ~/.profile'
+alias ep='vim ~/.vg-sh/alias.bash'
+alias sp='source ~/.vg-sh/alias.bash'
 
 # Tmp aliases
 alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
