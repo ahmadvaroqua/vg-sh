@@ -57,6 +57,15 @@ alias cdor='cd ~/Dropbox/Projects/VG/Engineering/opscode1/roles; ls'
 alias cdorvm='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks/rvm; ls'
 alias vimcheat='vim ~/Dropbox/Tmp/vim_cheatsheet.txt'
 
+# Git aliases
+alias gpom='git push origin master'
+alias gs='git status'
+alias ga='git add .'
+alias gcm='git commit -m'
+
+# Rails aliases
+alias bi='bundle install'
+
 # Functions (aliases that take arguments)
 cc ()
 {
