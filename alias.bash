@@ -1,5 +1,4 @@
-# Custom aliases for Ahmad
-# Directories
+# Custom aliases for Ahmad # Directories
 alias cde='cd ~/Dropbox/Projects/VG/Engineering; ls'
 alias cdd='cd ~/Downloads; ls'
 alias cdp='cd ~/Dropbox/Projects; ls'
@@ -38,6 +37,8 @@ alias sshvg='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/curr
 alias gemdev='ssh -t amata@varoquagroup.com "cd /home/amata/gems.varoquagroup.com/; bash"'
 alias lnmdev='ssh ahmadvaroqua@xp507'
 alias vs='vagrant status'
+alias vsus='vagrant suspend'
+alias vr='vagrant resume'
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vp='vagrant provision'
