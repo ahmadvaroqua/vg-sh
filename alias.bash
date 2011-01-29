@@ -10,6 +10,7 @@ alias cdx='cd ~/Dropbox; ls'
 alias cdhd='cd ~/Library/VirtualBox/HardDisks; ls'
 alias cdm='cd ~/Library/VirtualBox/Machines; ls'
 alias cdg='cd ~/Dropbox/Projects/VG/Engineering/Gems; ls'
+alias cdb='cd ~/Dropbox/Projects/VG/Engineering/vg-builder; ls'
 #alias oe='osascript ~/.scripts/f4.scpt; sleep 2; open ~/Dropbox/Projects/VG/Engineering'
 #alias oe=`osascript -e 'tell application \"System Events\" to key code 118'; open ~/Dropbox/Projects/VG/Engineering`
 #alias oe='osascript -e "tell application \"System Events\" to key code 118"; open ~/Dropbox/Projects/VG/Engineering'
