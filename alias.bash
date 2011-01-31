@@ -34,7 +34,8 @@ alias ls='ls -alG'
 alias cl='clear'
 alias k='knife'
 alias r='rails'
-alias sdev='ssh ahmadvaroqua@vgdev'
+#alias sdev='ssh ahmadvaroqua@vgdev'
+alias sdev='ssh -p 2222 ahmadvaroqua@vgdev'
 alias vgdev='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; bash"'
 alias vgb='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; vim vg_builder_template_7.rb"'
 alias sshvg='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; bash"'
@@ -55,6 +56,9 @@ alias kcu='knife cookbook upload'
 alias space='du -hc *'
 alias ep='vim ~/.vg-sh/alias.bash'
 alias sp='source ~/.vg-sh/alias.bash'
+alias ev='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile'
+alias eb='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template.rb'
+alias eh='sudo vim /etc/hosts'
 
 # Tmp aliases
 alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
@@ -87,6 +91,13 @@ vgr ()
   rails new $1 --builder=~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template.rb --skip-prototype --database=mysql
 }
 
+vt ()
+{
+  mkdir $1
+  cd $1
+  cp ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile .
+}
+
 di ()
 {
   du -hs $1
@@ -95,4 +106,10 @@ di ()
 totalspace ()
 {
   du -hc $1 | grep total
+}
+
+pg ()
+{
+  scp $1 amata@gems.varoquagroup.com:/home/amata/gems.varoquagroup.com/public/gems/
+  ssh -t amata@gems.varoquagroup.com "cd /home/amata/; gem generate_index -d gems.varoquagroup.com/public/"
 }
