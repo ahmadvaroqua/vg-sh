@@ -75,6 +75,17 @@ alias gs='git status'
 alias ga='git add .'
 alias gcm='git commit -m'
 
+get_tracker_entry ()
+{
+  curl http://tracker-old.liquidphire.com/index.php?current_task=true
+}
+
+gcp ()
+{
+  git add .
+  git commit -m "get_tracker_entry"
+}
+
 # Rails aliases
 alias bi='bundle install'
 
@@ -89,6 +100,11 @@ vgr ()
 {
   # rails new $1 --builder=http://varoquagroup.com/tmp/vg_builder_template_7.rb --skip-prototype --database=mysql
   rails new $1 --builder=~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template.rb --skip-prototype --database=mysql
+}
+
+vgc ()
+{
+  rails new $1 --builder=~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template_canned.rb --skip-prototype --database=mysql
 }
 
 vt ()
