@@ -80,7 +80,7 @@ get_tracker_entry ()
   curl http://tracker-old.liquidphire.com/index.php?current_task=true
 }
 
-# Test
+# Test1
 gcp ()
 {
   git add .
