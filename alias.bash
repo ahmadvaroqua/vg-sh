@@ -80,11 +80,11 @@ get_tracker_entry ()
   curl http://tracker-old.liquidphire.com/index.php?current_task=true
 }
 
+# Test
 gcp ()
 {
-  timesheet=get_tracker_entry
   git add .
-  git commit -m "$timesheet"
+  git commit -m \"get_tracker_entry\"
 }
 
 # Rails aliases
