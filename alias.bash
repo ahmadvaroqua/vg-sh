@@ -74,6 +74,7 @@ alias gpull='git pull origin master'
 alias gs='git status'
 alias ga='git add .'
 alias gcm='git commit -m'
+alias gl='git log'
 
 get_tracker_entry ()
 {
@@ -84,7 +85,9 @@ get_tracker_entry ()
 gcp ()
 {
   git add .
-  git commit -m \"get_tracker_entry\"
+  git commit -m "$(get_tracker_entry)"
+  # TIME=$(get_tracker_entry)
+  # echo $TIME
 }
 
 # Rails aliases
