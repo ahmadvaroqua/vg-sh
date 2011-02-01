@@ -82,8 +82,9 @@ get_tracker_entry ()
 
 gcp ()
 {
+  timesheet=get_tracker_entry
   git add .
-  git commit -m "get_tracker_entry"
+  git commit -m "$timesheet"
 }
 
 # Rails aliases
