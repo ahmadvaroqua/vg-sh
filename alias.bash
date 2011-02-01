@@ -76,18 +76,22 @@ alias ga='git add .'
 alias gcm='git commit -m'
 alias gl='git log'
 
-get_tracker_entry ()
+get_current_task ()
 {
   curl http://tracker-old.liquidphire.com/index.php?current_task=true
 }
 
-# Test1
 gcp ()
 {
   git add .
-  git commit -m "$(get_tracker_entry)"
-  # TIME=$(get_tracker_entry)
-  # echo $TIME
+  git commit -m "$(get_current_task)"
+  git push origin master
+}
+
+gc ()
+{
+  git add .
+  git commit -m "$(get_current_task)"
 }
 
 # Rails aliases
