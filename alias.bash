@@ -1,4 +1,4 @@
-# Custom aliases for Ahmad # Directories
+# Directories
 alias cde='cd ~/Dropbox/Projects/VG/Engineering; ls'
 alias cdd='cd ~/Downloads; ls'
 alias cdp='cd ~/Dropbox/Projects; ls'
@@ -13,35 +13,70 @@ alias cdg='cd ~/Dropbox/Projects/VG/Engineering/Gems; ls'
 alias cdb='cd ~/Dropbox/Projects/VG/Engineering/vg-builder; ls'
 alias cdvgsh='cd ~/.vg-sh; ls'
 alias cdpro='cd ~/.vg-sh; ls'
-#alias oe='osascript ~/.scripts/f4.scpt; sleep 2; open ~/Dropbox/Projects/VG/Engineering'
-#alias oe=`osascript -e 'tell application \"System Events\" to key code 118'; open ~/Dropbox/Projects/VG/Engineering`
-#alias oe='osascript -e "tell application \"System Events\" to key code 118"; open ~/Dropbox/Projects/VG/Engineering'
 alias oe='open ~/Dropbox/Projects/VG/Engineering'
 alias oa='open ~/Dropbox/Projects/VG/Engineering/Archives'
 alias oo='open ~/Dropbox/Projects/VG/Engineering/opscode1'
 alias ooc='open ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks'
 alias oor='open ~/Dropbox/Projects/VG/Engineering/opscode1/roles'
+alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
+alias cdoc='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks; ls'
+alias cdor='cd ~/Dropbox/Projects/VG/Engineering/opscode1/roles; ls'
+alias cdorvm='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks/rvm; ls'
 
+#-----------------------------------------------
 # Capistrano
 alias capr='cap deploy:restart'
 alias caprestart='cap deploy:restart'
 alias capstop='cap deploy:stop'
 alias capstart='cap deploy:start'
 
-# Applications
-alias v='vim'
+#-----------------------------------------------
+# Generic
 alias ls='ls -alG'
 alias cl='clear'
-alias k='knife'
-alias r='rails'
+alias space='du -hc *'
+#alias space='du -Psckx * | sort -nr'
+alias eh='sudo vim /etc/hosts'
+alias rd='rm -rf'
+
+# Need a comment here
+di ()
+{
+  du -hs $1
+}
+
+# Get the total space used by a directory
+totalspace ()
+{
+  du -hc $1 | grep total
+}
+
+# cd into a directory and show contents
+cc ()
+{
+  builtin cd $1
+  ls -al
+}
+
+#-----------------------------------------------
+# Vim
+alias v='vim'
+alias ep='vim ~/.vg-sh/alias.bash'
+alias sp='source ~/.vg-sh/alias.bash'
+alias vimcheat='vim ~/Dropbox/Tmp/vim_cheatsheet.txt'
+
+#-----------------------------------------------
+# Servers
 alias sdev='ssh ahmadvaroqua@vgdev'
-#alias sdev='ssh -p 2222 ahmadvaroqua@vgdev'
 alias vgdev='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; bash"'
 alias vgb='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; vim vg_builder_template_7.rb"'
 alias sshvg='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/current/public/tmp/; bash"'
 alias gemdev='ssh -t amata@varoquagroup.com "cd /home/amata/gems.varoquagroup.com/; bash"'
 alias ppndev='ssh -t amata@ppn.varoquagroup.com "cd /home/amata/ppn.varoquagroup.com/current/; bash"'
 alias lnmdev='ssh ahmadvaroqua@xp507'
+
+#-----------------------------------------------
+# Vagrant
 alias vs='vagrant status'
 alias vsus='vagrant suspend'
 alias vr='vagrant resume'
@@ -50,24 +85,21 @@ alias vh='vagrant halt'
 alias vp='vagrant provision'
 alias vssh='vagrant ssh'
 alias vd='vagrant destroy'
-alias rd='rm -rf'
+alias k='knife'
 alias kcu='knife cookbook upload'
-#alias space='du -Psckx * | sort -nr'
-alias space='du -hc *'
-alias ep='vim ~/.vg-sh/alias.bash'
-alias sp='source ~/.vg-sh/alias.bash'
 alias ev='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile'
 alias eb='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template.rb'
-alias eh='sudo vim /etc/hosts'
 
-# Tmp aliases
-alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
-alias cdoc='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks; ls'
-alias cdor='cd ~/Dropbox/Projects/VG/Engineering/opscode1/roles; ls'
-alias cdorvm='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks/rvm; ls'
-alias vimcheat='vim ~/Dropbox/Tmp/vim_cheatsheet.txt'
+# Useful for basic vagrant testing
+vt ()
+{
+  mkdir $1
+  cd $1
+  cp ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile .
+}
 
-# Git aliases
+#-----------------------------------------------
+# Git
 alias gpom='git push origin master'
 alias gpush='git push origin master'
 alias gpull='git pull origin master'
@@ -76,11 +108,20 @@ alias ga='git add .'
 alias gcm='git commit -m'
 alias gl='git log'
 
+# Gets the current task from Time Tracker
 get_current_task ()
 {
   curl http://tracker-old.liquidphire.com/index.php?current_task=true
 }
 
+# Adds and commits code but does not push up
+gc ()
+{
+  git add .
+  git commit -m "$(get_current_task)"
+}
+
+# Adds, commits and pushes up code
 gcp ()
 {
   git add .
@@ -88,22 +129,18 @@ gcp ()
   git push origin master
 }
 
-gc ()
-{
-  git add .
-  git commit -m "$(get_current_task)"
-}
-
-# Rails aliases
+#-----------------------------------------------
+# Rails
 alias bi='bundle install'
+alias r='rails'
+alias rdb='rake db:migrate'
+alias scaf='rails generate scaffold'
+alias scaff='rails generate scaffold'
+alias rgs='rails generate scaffold'
+alias rgm='rails generate model'
 
-# Functions (aliases that take arguments)
-cc ()
-{
-  builtin cd $1
-  ls -al
-}
-
+#-----------------------------------------------
+# VG Builder
 vgr ()
 {
   # rails new $1 --builder=http://varoquagroup.com/tmp/vg_builder_template_7.rb --skip-prototype --database=mysql
@@ -115,23 +152,9 @@ vgc ()
   rails new $1 --builder=~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template_canned.rb --skip-prototype --database=mysql
 }
 
-vt ()
-{
-  mkdir $1
-  cd $1
-  cp ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile .
-}
-
-di ()
-{
-  du -hs $1
-}
-
-totalspace ()
-{
-  du -hc $1 | grep total
-}
-
+#-----------------------------------------------
+# Gems
+# Push gems up to gems.varoquagroup.com
 pg ()
 {
   scp $1 amata@gems.varoquagroup.com:/home/amata/gems.varoquagroup.com/public/gems/
