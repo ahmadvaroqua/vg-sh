@@ -138,6 +138,8 @@ alias scaf='rails generate scaffold'
 alias scaff='rails generate scaffold'
 alias rgs='rails generate scaffold'
 alias rgm='rails generate model'
+alias cdcurrent='cd /apps/*/current'
+alias cdcur='cd /apps/*/current'
 
 #-----------------------------------------------
 # VG Builder
