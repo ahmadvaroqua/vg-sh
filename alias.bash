@@ -31,6 +31,16 @@ alias capstop='cap deploy:stop'
 alias capstart='cap deploy:start'
 
 #-----------------------------------------------
+# Thor
+alias tud='thor update Dick'
+alias tl='thor list'
+alias tda='thor dick:app1'
+alias tka1='thor dick:killapp1'
+alias tdka1='thor dick:killapp1'
+alias tdk='thor dick:killapp1'
+alias tka='thor dick:killapp1'
+
+#-----------------------------------------------
 # Generic
 alias ls='ls -alG'
 alias cl='clear'
@@ -64,6 +74,7 @@ alias v='vim'
 alias ep='vim ~/.vg-sh/alias.bash'
 alias sp='source ~/.vg-sh/alias.bash'
 alias vimcheat='vim ~/Dropbox/Tmp/vim_cheatsheet.txt'
+alias evim='vim ~/.vimrc'
 
 #-----------------------------------------------
 # Servers
