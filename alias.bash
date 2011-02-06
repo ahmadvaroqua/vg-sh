@@ -22,6 +22,9 @@ alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
 alias cdoc='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks; ls'
 alias cdor='cd ~/Dropbox/Projects/VG/Engineering/opscode1/roles; ls'
 alias cdorvm='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks/rvm; ls'
+alias ..='cd ../'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 #-----------------------------------------------
 # Capistrano
