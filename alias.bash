@@ -112,6 +112,14 @@ vt ()
   cp ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile .
 }
 
+# Vagrant testing Sinatra Redis build
+vsr ()
+{
+  mkdir $1
+  cd $1
+  cp ~/Dropbox/Projects/VG/Engineering/vg-builder/VagrantfileSinatraRedis Vagrantfile
+}
+
 #-----------------------------------------------
 # Git
 alias gpom='git push origin master'
@@ -175,4 +183,11 @@ pg ()
 {
   scp $1 amata@gems.varoquagroup.com:/home/amata/gems.varoquagroup.com/public/gems/
   ssh -t amata@gems.varoquagroup.com "cd /home/amata/; gem generate_index -d gems.varoquagroup.com/public/"
+}
+
+#-----------------------------------------------
+# VGTRACKER
+vgt ()
+{
+  curl -F "username=ahmadvaroqua" -F "task=$1" http://vgdev.com/ahmadvaroqua
 }
