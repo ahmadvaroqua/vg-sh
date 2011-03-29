@@ -191,3 +191,9 @@ vgt ()
 {
   curl -F "username=ahmadvaroqua" -F "task=$1" http://vgdev.com/ahmadvaroqua
 }
+#-----------------------------------------------
+# Redis
+alias redflush='redis-cli flushdb'
+alias redsize='redis-cli dbsize'
+alias redcli='redis-cli'
+alias redmon='redis-cli monitor'
