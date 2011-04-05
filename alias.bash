@@ -45,7 +45,7 @@ alias tka='thor dick:killapp1'
 
 #-----------------------------------------------
 # Generic
-alias ls='ls -alG'
+alias ls='LC_COLLATE=C ls -alGh'
 alias cl='clear'
 alias space='du -hc *'
 #alias space='du -Psckx * | sort -nr'
@@ -189,7 +189,17 @@ pg ()
 # VGTRACKER
 vgt ()
 {
-  curl -F "username=ahmadvaroqua" -F "task=$1" http://vgdev.com/ahmadvaroqua
+  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$1" http://vgdev.com/api/task/add
+}
+
+vgtc ()
+{
+  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://vgdev.com/api/task/current
+}
+
+vgtct ()
+{
+  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://vgdev.com/api/task/current/time
 }
 #-----------------------------------------------
 # Redis
