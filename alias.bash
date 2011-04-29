@@ -22,6 +22,7 @@ alias cdo='cd ~/Dropbox/Projects/VG/Engineering/opscode1; ls'
 alias cdoc='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks; ls'
 alias cdor='cd ~/Dropbox/Projects/VG/Engineering/opscode1/roles; ls'
 alias cdorvm='cd ~/Dropbox/Projects/VG/Engineering/opscode1/cookbooks/rvm; ls'
+alias cdmac='cd ~/Dropbox/Projects/VGTMACCLIENT/Engineering/VGTracker; ls'
 alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -94,6 +95,7 @@ alias lnmdev='ssh ahmadvaroqua@xp507'
 alias vs='vagrant status'
 alias vsus='vagrant suspend'
 alias vr='vagrant resume'
+alias vres='vagrant resume'
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vp='vagrant provision'
@@ -187,19 +189,20 @@ pg ()
 
 #-----------------------------------------------
 # VGTRACKER
-vgt ()
+tsn ()
 {
-  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$1" http://vgdev.com/api/task/add
+  # curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$1" http://timestreamapp.com/api/task/add
+  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$*" http://timestreamapp.com/api/task/add
 }
 
-vgtc ()
+tsc ()
 {
-  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://vgdev.com/api/task/current
+  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://timestreamapp.com/api/task/current
 }
 
-vgtct ()
+tst ()
 {
-  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://vgdev.com/api/task/current/time
+  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://timestreamapp.com/api/task/current/time
 }
 #-----------------------------------------------
 # Redis
