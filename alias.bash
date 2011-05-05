@@ -52,6 +52,7 @@ alias space='du -hc *'
 #alias space='du -Psckx * | sort -nr'
 alias eh='sudo vim /etc/hosts'
 alias rd='rm -rf'
+alias tail='tail -f -n 100'
 
 # Need a comment here
 di ()
@@ -89,6 +90,7 @@ alias sshvg='ssh -t amata@varoquagroup.com "cd /home/amata/varoquagroup.com/curr
 alias gemdev='ssh -t amata@varoquagroup.com "cd /home/amata/gems.varoquagroup.com/; bash"'
 alias ppndev='ssh -t amata@ppn.varoquagroup.com "cd /home/amata/ppn.varoquagroup.com/current/; bash"'
 alias lnmdev='ssh ahmadvaroqua@xp507'
+alias rockrack='ssh ahmadvaroqua@50.56.29.18'
 
 #-----------------------------------------------
 # Vagrant
@@ -103,6 +105,7 @@ alias vssh='vagrant ssh'
 alias vd='vagrant destroy'
 alias k='knife'
 alias kcu='knife cookbook upload'
+alias kcd='knife cookbook delete'
 alias ev='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/Vagrantfile'
 alias eb='vim ~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template.rb'
 
@@ -178,6 +181,17 @@ vgc ()
   rails new $1 --builder=~/Dropbox/Projects/VG/Engineering/vg-builder/vg_builder_template_canned.rb --skip-prototype --database=mysql
 }
 
+kbrs ()
+{
+  # knife rackspace server create 'role[base]' --server-name server01 --image 49 --flavor 2
+  knife rackspace server create "role[$1]" --server-name server01 --image 49 --flavor 2
+}
+
+kbas ()
+{
+  knife ec2 server create "role[$1]" -S amazon -I ~/.ssh/amazon.pem -x ubuntu -G default -i ami-6407f20d -f m1.small -Z us-east-1c
+}
+
 #-----------------------------------------------
 # Gems
 # Push gems up to gems.varoquagroup.com
@@ -192,7 +206,7 @@ pg ()
 tsn ()
 {
   # curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$1" http://timestreamapp.com/api/task/add
-  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$*" http://timestreamapp.com/api/task/add
+  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$*" -F "source=bash" http://timestreamapp.com/api/task/add
 }
 
 tsc ()
