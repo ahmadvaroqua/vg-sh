@@ -217,7 +217,11 @@ tsc ()
   # curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
 
   # Show response on a new line
-  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt)
+  # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt)
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt))
+  echo "${color}${response}${reset}"
 }
 
 # Get current time + task
@@ -228,7 +232,11 @@ tsc1 ()
   # curl -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt
 
   # Show response on a new line
-  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt)
+  # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt)
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt))
+  echo "${color}${response}${reset}"
 }
 
 # Get current task + time
@@ -239,7 +247,11 @@ tsc2 ()
   # curl -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt
 
   # Show response on a new line
-  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt)
+  # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt)
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt))
+  echo "${color}${response}${reset}"
 }
 
 # Get current time
@@ -250,7 +262,11 @@ tst ()
   # curl -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt
 
   # Show response on a new line
-  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt)
+  # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt)
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt))
+  echo "${color}${response}${reset}"
 }
 
 # Adds and commits code but does not push up
