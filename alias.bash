@@ -218,6 +218,7 @@ tsc ()
 
   # Show response on a new line
   # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt)
+  # Use colorized output
   color=$(tput setaf 2)
   reset=$(tput op)
   response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt))
@@ -233,6 +234,7 @@ tsc1 ()
 
   # Show response on a new line
   # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt)
+  # Use colorized output
   color=$(tput setaf 2)
   reset=$(tput op)
   response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt))
@@ -248,6 +250,7 @@ tsc2 ()
 
   # Show response on a new line
   # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt)
+  # Use colorized output
   color=$(tput setaf 2)
   reset=$(tput op)
   response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt))
@@ -263,6 +266,7 @@ tst ()
 
   # Show response on a new line
   # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt)
+  # Use colorized output
   color=$(tput setaf 2)
   reset=$(tput op)
   response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt))
