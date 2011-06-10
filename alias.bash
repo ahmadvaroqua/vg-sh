@@ -282,6 +282,38 @@ tst ()
   echo "${color}${response}${reset}"
 }
 
+# Get today's tasks
+# Sample response:
+# 00:02:31 This is my awesome task
+# 00:04:07 This is my other awesome task
+tstoday ()
+{
+  # Show response inline
+  # curl -G -d "password=demo" https://timestreamapp.com/demo.txt
+
+  # Show response on a new line
+  # paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo.txt)
+  # Use colorized output
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo.txt))
+  echo "${color}${response}${reset}"
+}
+
+tssearch ()
+{
+  # Show response inline
+  # curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt
+
+  # Show response on a new line
+  # paste -d " " <(curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt)
+  # Use colorized output
+  color=$(tput setaf 2)
+  reset=$(tput op)
+  response=$(paste -d " " <(curl -s -G -d "password=demo"  https://timestreamapp.com/demo/search/$*.txt))
+  echo "${color}${response}${reset}"
+}
+
 get_current_task ()
 {
   # Show response inline
