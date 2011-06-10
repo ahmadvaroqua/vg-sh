@@ -206,7 +206,16 @@ pg ()
 # Add new task
 tsn ()
 {
-  curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt
+  # Show response inline
+  # curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt
+
+  # Show response on a new line
+  # paste -d " " <(curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt)
+  # Use colorized output
+  color=$(tput setaf 6)
+  reset=$(tput op)
+  response=$(paste -d " " <(curl -s -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt))
+  echo "${color}${response}${reset}"
 }
 
 # Get current task
