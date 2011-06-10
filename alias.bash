@@ -135,26 +135,26 @@ alias ga='git add .'
 alias gcm='git commit -m'
 alias gl='git log'
 
-# Gets the current task from Time Tracker
-get_current_task ()
-{
-  curl http://tracker-old.liquidphire.com/index.php?current_task=true
-}
-
-# Adds and commits code but does not push up
-gc ()
-{
-  git add .
-  git commit -m "$(get_current_task)"
-}
-
-# Adds, commits and pushes up code
-gcp ()
-{
-  git add .
-  git commit -m "$(get_current_task)"
-  git push origin master
-}
+## Gets the current task from Time Tracker
+#get_current_task ()
+#{
+#  curl http://tracker-old.liquidphire.com/index.php?current_task=true
+#}
+#
+## Adds and commits code but does not push up
+#gc ()
+#{
+#  git add .
+#  git commit -m "$(get_current_task)"
+#}
+#
+## Adds, commits and pushes up code
+#gcp ()
+#{
+#  git add .
+#  git commit -m "$(get_current_task)"
+#  git push origin master
+#}
 
 #-----------------------------------------------
 # Rails
@@ -202,22 +202,72 @@ pg ()
 }
 
 #-----------------------------------------------
-# VGTRACKER
+# TimeStream
+# Add new task
 tsn ()
 {
-  # curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$1" http://timestreamapp.com/api/task/add
-  curl -F "username=ahmadvaroqua" -F "password=fuckyou" -F "task=$*" -F "source=bash" http://timestreamapp.com/api/task/add
+  curl -F "password=demo" -F "task=$*" -F "source=bash" https://timestreamapp.com/demo.txt
 }
 
+# Get current task
+# Sample response: This is my awesome task
 tsc ()
 {
-  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://timestreamapp.com/api/task/current
+  # Show response inline
+  # curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
+
+  # Show response on a new line
+  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt)
 }
 
+# Get current time + task
+# Sample response: [00:02:31] This is my awesome task
+tsc1 ()
+{
+  # Show response inline
+  # curl -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt
+
+  # Show response on a new line
+  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time-task.txt)
+}
+
+# Get current task + time
+# Sample response: This is my awesome task [00:02:31]
+tsc2 ()
+{
+  # Show response inline
+  # curl -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt
+
+  # Show response on a new line
+  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/task-time.txt)
+}
+
+# Get current time
+# Sample response: 00:02:31
 tst ()
 {
-  curl -G -d "username=ahmadvaroqua" -d "password=fuckyou" http://timestreamapp.com/api/task/current/time
+  # Show response inline
+  # curl -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt
+
+  # Show response on a new line
+  paste -d" " <(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current/time.txt)
 }
+
+# Adds and commits code but does not push up
+gc ()
+{
+  git add .
+  git commit -m "$(tsc)"
+}
+
+# Adds, commits and pushes up code
+gcp ()
+{
+  git add .
+  git commit -m "$(tsc)"
+  git push origin master
+}
+
 #-----------------------------------------------
 # Redis
 alias redflush='redis-cli flushdb'
