@@ -269,18 +269,23 @@ tst ()
   echo "${color}${response}${reset}"
 }
 
+get_current_task ()
+{
+  curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
+}
+
 # Adds and commits code but does not push up
 gc ()
 {
   git add .
-  git commit -m "$(tsc)"
+  git commit -m "$(get_current_task)"
 }
 
 # Adds, commits and pushes up code
 gcp ()
 {
   git add .
-  git commit -m "$(tsc)"
+  git commit -m "$(get_current_task)"
   git push origin master
 }
 
