@@ -285,13 +285,7 @@ tst ()
 get_current_task ()
 {
   # Show response inline
-  # curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
-
-  # Use colorized output
-  color=$(tput setaf 2)
-  reset=$(tput op)
-  response=$(curl -s -G -d "password=demo" https://timestreamapp.com/demo/current.txt)
-  echo "${color}${response}${reset}"
+  curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
 }
 
 # Adds and commits code but does not push up
