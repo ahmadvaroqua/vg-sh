@@ -317,7 +317,8 @@ tssearch ()
 get_current_task ()
 {
   # Show response inline
-  curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
+  # curl -G -d "password=demo" https://timestreamapp.com/demo/current.txt
+  curl http://tracker-old.liquidphire.com/index.php?current_task=true
 }
 
 # Adds and commits code but does not push up
