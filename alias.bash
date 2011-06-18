@@ -339,6 +339,7 @@ gcp ()
 #-----------------------------------------------
 # Redis
 alias redflush='redis-cli flushdb'
+alias redflushall='redis-cli flushall'
 alias redsize='redis-cli dbsize'
 alias redcli='redis-cli'
 alias redmon='redis-cli monitor'
