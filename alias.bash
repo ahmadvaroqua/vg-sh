@@ -26,6 +26,7 @@ alias cdmac='cd ~/Dropbox/Projects/VGTMACCLIENT/Engineering/VGTracker; ls'
 alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 #-----------------------------------------------
 # Capistrano
