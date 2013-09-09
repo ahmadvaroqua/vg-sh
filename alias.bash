@@ -52,7 +52,7 @@ alias space='du -hc *'
 #alias space='du -Psckx * | sort -nr'
 alias eh='sudo vim /etc/hosts'
 alias rd='rm -rf'
-alias tail='tail -f -n 100'
+alias tail='tail -f -n 200'
 
 # Need a comment here
 di ()
@@ -71,6 +71,13 @@ cc ()
 {
   builtin cd $1
   ls -al
+}
+
+function rbenvsudo()
+{
+  executable=$1
+  shift 1
+  sudo $(rbenv which $executable) $*
 }
 
 #-----------------------------------------------
@@ -161,12 +168,49 @@ alias gl='git log'
 alias bi='bundle install'
 alias r='rails'
 alias rdb='rake db:migrate'
+alias zdb='zeus rake db:migrate'
 alias scaf='rails generate scaffold'
 alias scaff='rails generate scaffold'
 alias rgs='rails generate scaffold'
 alias rgm='rails generate model'
 alias cdcurrent='cd /apps/*/current'
 alias cdcur='cd /apps/*/current'
+alias ejs='v /apps/ELLIEKAI/current/app/assets/javascripts/active_admin_global.js'
+alias ecss='v /apps/ELLIEKAI/current/app/assets/stylesheets/active_admin.css.sass'
+alias ecss2='v /apps/ELLIEKAI/current/app/assets/stylesheets/labels.css.sass'
+alias cdrake='cd /apps/ELLIEKAI/current/lib/tasks/'
+alias cdadmin='cd /apps/ELLIEKAI/current/app/admin/'
+alias cdad='cd /apps/ELLIEKAI/current/app/admin/'
+alias cdmodels='cd /apps/ELLIEKAI/current/app/models/'
+alias cdmodel='cd /apps/ELLIEKAI/current/app/models/'
+alias cdmod='cd /apps/ELLIEKAI/current/app/models/'
+alias ehelper='v /apps/ELLIEKAI/current/app/helpers/application_helper.rb'
+alias ehelp='v /apps/ELLIEKAI/current/app/helpers/application_helper.rb'
+alias taildev='tail -f -n 200 /apps/ELLIEKAI/current/log/development.log'
+alias tailside='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/sidekiq-1.log'
+alias tailuni='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/unicorn-1.log'
+alias tailunicorn='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/unicorn-1.log'
+alias tailnginx='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/nginx-1.log'
+alias tailred='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/redis-1.log'
+alias tailredis='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/redis-1.log'
+alias tailfaye='tail -f -n 200 /apps/ELLIEKAI/current/log/foreman/faye-1.log'
+alias econfig='v /apps/ELLIEKAI/current/config/initializers/active_admin.rb'
+alias zc='zeus console'
+alias zdb='zeus dbconsole'
+alias zr='zeus rake'
+alias zs='zeus start'
+alias rmg='rm /apps/ELLIEKAI/current/Gemfile.lock'
+alias showprocess='ps -ef | grep'
+alias showproc='ps -ef | grep'
+alias process='ps -ef | grep'
+alias proc='ps -ef | grep'
+alias cdpid='cd /tmp'
+alias cdwork='cd /apps/ELLIEKAI/current/app/workers/'
+
+#-----------------------------------------------
+# Temporary project shit
+alias rsf='rake seed_fake_data'
+alias rsfd='rake seed_fake_data'
 
 #-----------------------------------------------
 # VG Builder
